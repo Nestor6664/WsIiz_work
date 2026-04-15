@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Lab7/css/style.css">
+    <title>form</title>
+</head>
+
+<body>
+    <div class="glitch-form-wrapper">
+        <div class="glitch-card">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <input type="text" id="user" placeholder=" ">
+                    <label class="form-label">Imię</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="email" placeholder=" ">
+                    <label class="form-label">Email</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="pass" placeholder=" ">
+                    <label class="form-label">Hasło</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="pass2" placeholder=" ">
+                    <label class="form-label">Powtórz hasło</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="date" id="bday">
+                </div>
+                <div class="form-group">
+
+                    <select id="gender" class="styled-select">
+                        <option value="">Wybierz płeć</option>
+                        <option>Mężczyzna</option>
+                        <option>Kobieta</option>
+                        <option>Nie chcę podawać</option>
+                    </select>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label><input type="radio" name="ver" value="Darmowa"> Darmowa</label>
+                    <label><input type="radio" name="ver" value="Standardowa"> Standardowa</label>
+                    <label><input type="radio" name="ver" value="Premium"> Premium</label>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-group checkbox-group" style="display: flex;">
+                    <label>
+                         <p style="padding-bottom: 12px;">Akceptuję regulamin</p>
+                        <input type="checkbox" id="terms" >
+                    </label>
+                </div>
+
+                <button class="submit-btn" onclick="register()">Zarejestruj się</button>
+
+                <p id="result"></p>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function register() {
+            const user = document.getElementById('user').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const pass = document.getElementById('pass').value;
+            const pass2 = document.getElementById('pass2').value;
+            const bday = document.getElementById('bday').value;
+            const out = document.getElementById('result');
+            const errors = [];
+
+            if (!user) errors.push("Wpisz imię");
+            if (!email.includes("@")) errors.push("Nieprawidłowy email");
+            if (pass.length < 8) errors.push("Hasło min 8 znaków");
+            if (pass !== pass2) errors.push("Hasła nie są takie same");
+
+            if (errors.length > 0) {
+                out.textContent = errors.join(", ");
+            } else {
+                out.textContent = "Rejestracja OK!";
+            }
+            const terms = document.getElementById('terms').checked;
+            const ver = document.querySelector('input[name="ver"]:checked');
+
+            if (!terms) errors.push("Zaakceptuj regulamin");
+            if (!ver) errors.push("Wybierz wersję");
+        }
+    </script>
+</body>
+
+</html>

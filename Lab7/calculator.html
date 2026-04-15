@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>zielenie</title>
+    <link rel="stylesheet" href="../Lab7/css/style2.css">
+</head>
+
+<body>
+    <h2>zielenie liczb</h2>
+    <input type="text" id="n1" placeholder="liczba 1">
+    <input type="text" id="n2" placeholder="liczba 2">
+    <button onclick="divide()">liczyć</button>
+    <p id="result"></p>
+
+    <script>
+        function divide() {
+            try {
+                const a = parseFloat(document.getElementById('n1').value);
+                const b = parseFloat(document.getElementById('n2').value);
+                if (isNaN(a) || isNaN(b)) {
+                    throw new Error("Wpisz liczby prawdziwe!");
+                }
+                if (b === 0) {
+                    throw new Error("Dzielenie przez zero jest niemożliwe!");
+                }
+                document.getElementById('result').textContent =
+                    a + " / " + b + " = " + (a / b);
+            } catch (e) {
+                document.getElementById('result').textContent = "Błąd: " + e.message;
+            }
+        }
+    </script>
+</body>
+
+</html>

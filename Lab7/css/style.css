@@ -1,0 +1,172 @@
+.glitch-form-wrapper {
+  --bg-color: #0d0d0d;
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+  --text-color: #e5e5e5;
+  --font-family: "Fira Code", Consolas, monospace;
+  --glitch-anim-duration: 0.5s;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+}
+
+.glitch-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: var(--font-family);
+}
+
+.glitch-card {
+  background-color: var(--bg-color);
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid rgba(0, 242, 234, 0.2);
+  box-shadow: 0 0 20px rgba(0, 242, 234, 0.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  color: var(--primary-color);
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.form-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 242, 234, 0.3);
+  padding: 0.75em 0;
+  color: white;
+}
+
+.form-group input:focus+.form-label,
+.form-group input:not(:placeholder-shown)+.form-label {
+  top: -1.2em;
+  font-size: 0.8rem;
+  opacity: 1;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.8em;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: var(--primary-color);
+  color: black;
+}
+
+#result {
+  color: white;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.styled-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 242, 234, 0.3);
+  padding: 0.75em 0;
+  color: var(--text-color);
+  font-family: inherit;
+}
+
+/* RADIO */
+.radio-group label {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* CHECKBOX */
+.checkbox-group label {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* RADIO - inline */
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* CHECKBOX + RADIO base */
+.radio-group input,
+.checkbox-group input {
+  appearance: none;
+  width: 24px;
+  height: 14px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+/* RADIO circle */
+.radio-group input {
+  border-radius: 50%;
+}
+
+/* CHECKBOX square */
+.checkbox-group input {
+  border-radius: 3px;
+}
+
+/* checked effect */
+.radio-group input:checked::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+
+.checkbox-group input:checked::after {
+  content: "✔";
+  position: absolute;
+  font-size: 18px;
+  top: -2px;
+  left: 3px;
+  color: var(--primary-color);
+}
+
+/* hover glow */
+.radio-group input:hover,
+.checkbox-group input:hover {
+  box-shadow: 0 0 5px var(--primary-color);
+}
