@@ -92,7 +92,6 @@ body {
   font-family: inherit;
 }
 
-/* RADIO */
 .radio-group label {
   color: var(--text-color);
   font-size: 0.9rem;
@@ -100,13 +99,11 @@ body {
   margin-bottom: 5px;
 }
 
-/* CHECKBOX */
 .checkbox-group label {
   color: var(--text-color);
   font-size: 0.9rem;
 }
 
-/* RADIO - inline */
 .radio-group {
   display: flex;
   justify-content: space-between;
@@ -122,7 +119,6 @@ body {
   cursor: pointer;
 }
 
-/* CHECKBOX + RADIO base */
 .radio-group input,
 .checkbox-group input {
   appearance: none;
@@ -134,17 +130,14 @@ body {
   position: relative;
 }
 
-/* RADIO circle */
 .radio-group input {
   border-radius: 50%;
 }
 
-/* CHECKBOX square */
 .checkbox-group input {
   border-radius: 3px;
 }
 
-/* checked effect */
 .radio-group input:checked::after {
   content: "";
   position: absolute;
@@ -165,8 +158,11 @@ body {
   color: var(--primary-color);
 }
 
-/* hover glow */
 .radio-group input:hover,
 .checkbox-group input:hover {
   box-shadow: 0 0 5px var(--primary-color);
+}
+
+.checkbox-label span {
+  text-align: center;
 }

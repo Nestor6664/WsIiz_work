@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>zielenie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="../Lab7/css/style2.css">
 </head>
+<body style="background:#0b1320; display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column; gap:20px;">
 
-<body>
-    <h2>zielenie liczb</h2>
-    <input type="text" id="n1" placeholder="liczba 1">
-    <input type="text" id="n2" placeholder="liczba 2">
-    <button onclick="divide()">liczyć</button>
-    <p id="result"></p>
+<h2 style="color:white;">Dzielenie liczb</h2>
 
-    <script>
-        function divide() {
-            try {
-                const a = parseFloat(document.getElementById('n1').value);
-                const b = parseFloat(document.getElementById('n2').value);
-                if (isNaN(a) || isNaN(b)) {
-                    throw new Error("Wpisz liczby prawdziwe!");
-                }
-                if (b === 0) {
-                    throw new Error("Dzielenie przez zero jest niemożliwe!");
-                }
-                document.getElementById('result').textContent =
-                    a + " / " + b + " = " + (a / b);
-            } catch (e) {
-                document.getElementById('result').textContent = "Błąd: " + e.message;
-            }
+<div id="poda">
+    <input class="containerInput" type="text" id="n1" placeholder="Liczba 1">
+</div>
+
+<div id="poda">
+    <input class="containerInput" type="text" id="n2" placeholder="Liczba 2">
+</div>
+
+<button onclick="divide()" style="
+    padding:10px 20px;
+    background:#cf30aa;
+    border:none;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+">
+Oblicz
+</button>
+
+<p id="result" style="color:white;"></p>
+
+<script>
+function divide() {
+    try {
+        const a = parseFloat(document.getElementById('n1').value);
+        const b = parseFloat(document.getElementById('n2').value);
+
+        if (isNaN(a) || isNaN(b)) {
+            throw new Error("Wpisz liczby!");
         }
-    </script>
-</body>
 
+        if (b === 0) {
+            throw new Error("Nie można dzielić przez 0!");
+        }
+
+        document.getElementById('result').textContent =
+            a + " / " + b + " = " + (a / b);
+
+    } catch (e) {
+        document.getElementById('result').textContent = "Błąd: " + e.message;
+    }
+}
+</script>
+
+</body>
 </html>
