@@ -67,32 +67,52 @@
     </div>
 
     <script>
-        function register() {
-            const user = document.getElementById('user').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const pass = document.getElementById('pass').value;
-            const pass2 = document.getElementById('pass2').value;
-            const bday = document.getElementById('bday').value;
-            const out = document.getElementById('result');
-            const errors = [];
+function register() {
+    const user = document.getElementById('user').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const pass = document.getElementById('pass').value;
+    const pass2 = document.getElementById('pass2').value;
+    const bday = document.getElementById('bday').value;
+    const out = document.getElementById('result');
+    const terms = document.getElementById('terms').checked;
+    const ver = document.querySelector('input[name="ver"]:checked');
 
-            if (!user) errors.push("Wpisz imię");
-            if (!email.includes("@")) errors.push("Nieprawidłowy email");
-            if (pass.length < 8) errors.push("Hasło min 8 znaków");
-            if (pass !== pass2) errors.push("Hasła nie są takie same");
+    const errors = [];
 
-            if (errors.length > 0) {
-                out.textContent = errors.join(", ");
-            } else {
-                out.textContent = "Rejestracja OK!";
-            }
-            const terms = document.getElementById('terms').checked;
-            const ver = document.querySelector('input[name="ver"]:checked');
+    if (!user) errors.push("Wpisz imię");
+    if (!email.includes("@")) errors.push("Nieprawidłowy email");
+    if (pass.length < 8) errors.push("Hasło min 8 znaków");
+    if (pass !== pass2) errors.push("Hasła nie są takie same");
 
-            if (!terms) errors.push("Zaakceptuj regulamin");
-            if (!ver) errors.push("Wybierz wersję");
+    
+    if (bday) {
+        const birthDate = new Date(bday);
+        const today = new Date();
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
         }
-    </script>
+
+        if (age < 18) {
+            errors.push("Musisz mieć co najmniej 18 lat");
+        }
+    } else {
+        errors.push("Podaj datę urodzenia");
+    }
+
+    if (!terms) errors.push("Zaakceptuj regulamin");
+    if (!ver) errors.push("Wybierz wersję");
+
+    if (errors.length > 0) {
+        out.textContent = errors.join(", ");
+    } else {
+        out.textContent = "Rejestracja OK!";
+    }
+}
+</script>
 </body>
 
 </html>
