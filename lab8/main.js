@@ -1,4 +1,4 @@
-// ===== POPUP =====
+
 function pokazPopup(tresc) {
     document.getElementById("popupContent").innerHTML = tresc;
     document.getElementById("popup").style.display = "block";
@@ -9,7 +9,6 @@ function zamknijPopup() {
 }
 
 
-// ===== FORMULARZ =====
 document.getElementById("formularz").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -19,14 +18,13 @@ document.getElementById("formularz").addEventListener("submit", function (e) {
         wiek: Number(document.getElementById("wiek").value)
     };
 
-    // ALERT (opcjonalnie)
     alert(`
 Obiekt: ${JSON.stringify(osoba)}
 Dane: ${osoba.imie} ${osoba.nazwisko} ${osoba.wiek}
 JSON: ${JSON.stringify(osoba)}
     `);
 
-    // POPUP
+
     pokazPopup(`
         <b>Obiekt:</b> ${JSON.stringify(osoba)} <br>
         <b>Dane:</b> ${osoba.imie} ${osoba.nazwisko} ${osoba.wiek} <br>
@@ -35,7 +33,7 @@ JSON: ${JSON.stringify(osoba)}
 });
 
 
-// ===== KLASA =====
+
 class ComplexNumber {
     constructor(real, imaginary) {
         this.real = real;
@@ -53,7 +51,7 @@ class ComplexNumber {
 }
 
 
-// ===== GENERATOR =====
+
 function generujLiczby(n) {
     const arr = [];
 
@@ -68,7 +66,7 @@ function generujLiczby(n) {
 }
 
 
-// ===== FUNKCJA GŁÓWNA =====
+
 function uruchom() {
     const liczby = generujLiczby(5);
 
