@@ -248,7 +248,7 @@
     font-size: 32px;
     font-weight: 900;
     pointer-events: none;
-    z-index: 9997;
+    z-index: 9999;
     animation: comboAnim 0.8s ease-out forwards;
     text-shadow: 0 0 30px currentColor;
   }
